@@ -11,6 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('dashboard');
-});
+// Route::get('/', function () {
+//     return view('dashboard');
+// });
+Route::namespace('Admin')->group(
+    function(){
+        Route::resource('/admin', 'HomeController');
+        Route::get('/schedule/{id}','ScheduleController@show');
+    }
+);
